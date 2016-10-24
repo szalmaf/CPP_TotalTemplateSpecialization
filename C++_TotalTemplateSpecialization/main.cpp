@@ -75,5 +75,5 @@ int main(int argc, const char * argv[]) {
     // LoggingMsgSender usage example
     LoggingMsgSender<CompanyA> lms;
     lms.sendClearMsg(MsgInfo());
-    return 0;
+    
 }
