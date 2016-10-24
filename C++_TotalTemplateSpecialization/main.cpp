@@ -49,6 +49,9 @@ template<>
 class MsgSender<CompanyZ> { // total template specialization of MsgSender to CompanyZ
 public:
     void sendSecret(const MsgInfo & info) {
+        std::string msg;
+        CompanyZ c;
+        c.sendEncrypted(msg);
     }
 };
 
@@ -75,5 +78,10 @@ int main(int argc, const char * argv[]) {
     // LoggingMsgSender usage example
     LoggingMsgSender<CompanyA> lms;
     lms.sendClearMsg(MsgInfo());
+    
+    // Total specialized usage example
+    LoggingMsgSender<CompanyZ> lmZ;
+//    lmZ.sendClearMsg(mi); // won't compile as specialized
+    lmZ.sendSecret(mi);
     
 }
